@@ -107,8 +107,12 @@ const printQuote = function() {
 
 
   /***
-   * Create a timer function
+   * Create a timer to refresh every 10 seconds
    */
+  setInterval(function() {
+    printQuote();
+    setBackgroundColor();
+  }, 10000);
 
 
 /***

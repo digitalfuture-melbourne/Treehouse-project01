@@ -43,7 +43,7 @@ const quotes = [
  * `getRandomQuote` function
 ***/
 
-
+const getRandomQuote = () => Math.floor(Math.random() * quotes.length) + 1;
 
 /***
  * `printQuote` function

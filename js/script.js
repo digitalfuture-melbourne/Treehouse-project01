@@ -85,10 +85,40 @@ const printQuote = function() {
     return document.getElementById('quote-box').innerHTML = html;
   }
 
+  /***
+   * Random Color Generator
+   */
+
+  const randomColorGenerator = () => {
+    let red = Math.floor(Math.random() * 256);
+    let green = Math.floor(Math.random() * 256);
+    let blue = Math.floor(Math.random() * 256);
+    
+    return `rgb(${red}, ${green}, ${blue})`;
+  }
+
+ /***
+   * Set Random Background Color
+   */
+
+  const setBackgroundColor = () => {
+    document.body.style.backgroundColor = randomColorGenerator();
+  }
+
+
+  /***
+   * Create a timer function
+   */
+
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", function() {
+  printQuote();
+  setBackgroundColor(); //Change background color on click
+}, false);
+
+

@@ -14,7 +14,8 @@ project 1 - A Random Quote Generator
 const quotes = [
   {
     quote: 'Strive not to be a success, but rather to be of value.',
-    source: 'Albert Einstein'
+    source: 'Albert Einstein',
+    tags: 'Science'
   },
   {
     quote: "I've missed more than 9000 shots in my career. I've lost almost 300 games. 26 times I've been trusted to take the game winning shot and missed. I've failed over and over and over again in my life. And that is why I succeed.",
@@ -48,12 +49,41 @@ const getRandomQuote = () => {
   return quotes[randomNumber];
 }
 
-console.log(getRandomQuote())
 
 /***
  * `printQuote` function
 ***/
 
+const printQuote = function() {
+  const quote = getRandomQuote();
+  let html = '';
+    for (let key in quote)
+    {
+      if (quote.length == 2)
+      {
+        html += `<p class="${key}">${quote[key]} </p>`;
+      }
+      else
+      {
+        if (key == 'quote')
+        {
+          html += `<p class="${key}">${quote[key]} </p>`;
+        }
+        else if (key == 'source')
+        {
+          html += `<p class="${key}">${quote[key]} `;
+        }
+        else if (key != 'quote' || key != "source")
+        {
+          html += `<span class="${key}">${quote[key]} </span>`;
+        }
+        else {
+          html += '</p>'
+        }
+      }
+    }
+    return document.getElementById('quote-box').innerHTML = html;
+  }
 
 
 /***
